@@ -11,8 +11,9 @@ def to_ethcall(moo_tx):
         'gasLimit': moo_tx['gasLimit'],
         'data': moo_tx['data'],
         'value': moo_tx['value'],
-        'maxPriorityFeePerGas': moo_tx['maxPriorityFeePerGas'],
-        'maxFeePerGas': moo_tx['maxFeePerGas']
+        'maxPriorityFeePerGas': moo_tx.get('maxPriorityFeePerGas', None),
+        'maxFeePerGas': moo_tx.get('maxFeePerGas', None),
+        'gasPrice': moo_tx.get('gasPrice', None)
     }
 
 
