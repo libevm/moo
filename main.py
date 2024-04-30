@@ -11,6 +11,8 @@ def to_ethcall(moo_tx):
         'gasLimit': moo_tx['gasLimit'],
         'data': moo_tx['data'],
         'value': moo_tx['value'],
+        'maxPriorityFeePerGas': moo_tx['maxPriorityFeePerGas'],
+        'maxFeePerGas': moo_tx['maxFeePerGas']
     }
 
 
@@ -25,6 +27,9 @@ def to_getbalance_tx(addr):
 
 # acc[userAddress][txHash] = eth owed
 acc = {}
+
+# random coinbase
+coinbase = '0xb1C3bc7F56F66E724CC83305c4d4e4d1921Adaf1'
 
 if __name__ == '__main__':
     with open('./dune_resp.json') as f:
@@ -65,10 +70,13 @@ if __name__ == '__main__':
                 {
                     'transactions': [
                         to_ethcall(opp_tx),
-                        to_getbalance_tx(opp_tx['from']),
+                        to_getbalance_tx(coinbase),
                         to_ethcall(backrun_tx),
-                        to_getbalance_tx(opp_tx['from']),
+                        to_getbalance_tx(coinbase),
                     ],
+                    'blockOverride': {
+                        'coinbase': coinbase,
+                    }
                 },
                 {
                     'blockNumber': hex(block),
@@ -100,5 +108,5 @@ if __name__ == '__main__':
 
         except:
             pass
-
+    
     print('results', acc)
