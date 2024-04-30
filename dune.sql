@@ -1,0 +1,20 @@
+select * from mevblocker.raw_bundles WHERE
+    blockNumber = 19762529 OR
+    blockNumber = 19762653 OR
+    blockNumber = 19762520 OR
+    blockNumber = 19762975 OR
+    blockNumber = 19763078 OR
+    blockNumber = 19762856 OR
+    blockNumber = 19762409 OR
+    blockNumber = 19762449 OR
+    blockNumber = 19761935 OR
+    blockNumber = 19762597 OR
+    blockNumber = 19762246 OR
+    blockNumber = 19762289 OR
+    blockNumber = 19763029 OR
+    blockNumber = 19763098 OR
+    blockNumber = 19762133 OR
+    blockNumber = 19762656 OR
+    blockNumber = 19762901 OR
+    blockNumber = 19763157 OR
+    blockNumber = 19762403
